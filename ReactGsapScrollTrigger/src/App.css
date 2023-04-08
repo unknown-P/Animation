@@ -1,0 +1,54 @@
+#root {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#mic {
+  opacity: 0;
+}
+#section-1 {
+  opacity: 0;
+}
+
+#sec-1-svg {
+  opacity: 0;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
+#section-2 {
+  opacity: 0;
+}
+#sec-2-svg {
+  opacity: 0;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
+#section-3 {
+  opacity: 0;
+}
+#sec-3-svg {
+  opacity: 0;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
+
+#section-4 {
+  opacity: 0;
+}
+#sec-4-svg-l {
+  opacity: 0;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
+#sec-4-svg-c1 {
+  opacity: 0;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
+#sec-4-svg-c2 {
+  opacity: 0;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
