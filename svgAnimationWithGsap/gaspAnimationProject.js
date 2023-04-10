@@ -55,6 +55,7 @@ tl.fromTo(
   { y: 820 },
   { y: 175, duration: 3, ease: "power1", opacity: 1 }
 );
+
 // Stabilize section
 tl.fromTo(
   "#section-1",
@@ -102,13 +103,17 @@ tl.fromTo(
 tl.to("#section-2", 0.5, { autoAlpha: 0 }, "<3");
 
 // Optimize Line svg
-tl.to(
+tl.fromTo(
   "#sec-2-svg",
+  {
+    duration: 3,
+    strokeDashoffset: 0,
+  },
   {
     duration: 3,
     ease: "power1",
     opacity: 1,
-    strokeDashoffset: 0,
+    strokeDashoffset: 2000,
   },
   6
 );
@@ -128,7 +133,7 @@ tl.fromTo(
   9
 );
 // hide animation after it completes
-tl.to("#section-3", 0.5, { autoAlpha: 0 }, "<3");
+tl.to("#section-3", 0.5, { autoAlpha: 0 }, "<0");
 
 // Profit Line svg
 tl.to(
@@ -159,17 +164,6 @@ tl.fromTo(
 // hide animation after it completes
 tl.to("#section-4", 0.5, { autoAlpha: 0 }, "<3");
 
-// Invest Line svg
-tl.to(
-  "#sec-4-svg-l",
-  {
-    duration: 3,
-    ease: "power1",
-    opacity: 1,
-    strokeDashoffset: 0,
-  },
-  12
-);
 // Invest circle1 svg
 tl.to(
   "#sec-4-svg-c1",
@@ -179,7 +173,7 @@ tl.to(
     opacity: 1,
     strokeDashoffset: 0,
   },
-  11
+  12
 );
 
 // Invest circle2 svg
@@ -191,10 +185,26 @@ tl.to(
     opacity: 1,
     strokeDashoffset: 0,
   },
-  11
+  12
+);
+
+// Invest Line svg
+tl.fromTo(
+  "#sec-4-svg-l",
+  {
+    duration: 3,
+    strokeDashoffset: 1000,
+  },
+  {
+    duration: 3,
+    ease: "power1",
+    opacity: 1,
+    strokeDashoffset: 2000,
+  },
+  12.4
 );
 
 // hide animation after it completes
-tl.to("#sec-4-svg-l", 0.5, { autoAlpha: 0 }, "<3");
-tl.to("#sec-4-svg-c1", 0.5, { autoAlpha: 0 }, "<3");
-tl.to("#sec-4-svg-c2", 0.5, { autoAlpha: 0 }, "<3");
+tl.to("#sec-4-svg-c1", 0.5, { autoAlpha: 0 }, "<0");
+tl.to("#sec-4-svg-c2", 0.5, { autoAlpha: 0 }, "<0");
+tl.to("#sec-4-svg-l", 0.5, { autoAlpha: 0 }, "<0");
