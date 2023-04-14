@@ -30,8 +30,13 @@ Draggable.create("#inner-circle", {
     update();
     return Math.round(endValue / rotationSnap) * rotationSnap;
   },
-  onDragEnd: function () {
+  onDrag: function () {
     console.log(this.getDirection());
+    update();
+  },
+  onDragStart: function () {
+    gsap.set("#ques", { opacity: 0, ease: "power" });
+    gsap.set("#quesTxt", { opacity: 0, ease: "power" });
   },
 });
 
@@ -81,6 +86,8 @@ gsap.ticker.add((time, deltaTime) => {
   // console.log(gsap.getProperty("#inner-circle", "rotation"));
 
   velocity *= 0.8;
+  gsap.set("#ques", { opacity: 0, ease: "power" });
+  gsap.set("#quesTxt", { opacity: 0, ease: "power" });
   update();
 });
 
@@ -122,28 +129,46 @@ function update() {
 }
 
 let icon = document.querySelector("#minusPathSVG");
-icon.addEventListener("click", changeIcon(icon));
-function changeIcon(q) {
+
+// function changeIcon(q) {
+//   console.log(q + "clicked");
+//   if (
+//     icon.getAttribute(
+//       "d",
+//       "M737.23,357.41l-5.78.09-.06-4.16,5.77-.09,4.18-.07,5.77-.09.07,4.16-5.77.09Z"
+//     ) == true
+//   ) {
+//     icon.setAttribute(
+//       "d",
+//       "M320.09,542.4l-4,4.13-3-2.9,4-4.14-4.07-4,2.91-3,4.08,4,4-4.13,3,2.91-4,4.13,4,3.92-2.92,3Z"
+//     );
+//   } else if (
+//     icon.getAttribute(
+//       "d",
+//       "M320.09,542.4l-4,4.13-3-2.9,4-4.14-4.07-4,2.91-3,4.08,4,4-4.13,3,2.91-4,4.13,4,3.92-2.92,3Z"
+//     ) == false
+//   ) {
+//     icon.setAttribute(
+//       "d",
+//       "M737.23,357.41l-5.78.09-.06-4.16,5.77-.09,4.18-.07,5.77-.09.07,4.16-5.77.09Z"
+//     );
+//   }
+// }
+
+function quest(q) {
   console.log(q + "clicked");
+
+  let ques = document.querySelector("#ques");
+  let qutxt = document.querySelector("#quesTxt");
+
   if (
-    icon.getAttribute(
-      "d",
-      "M737.23,357.41l-5.78.09-.06-4.16,5.77-.09,4.18-.07,5.77-.09.07,4.16-5.77.09Z"
-    ) == true
+    window.getComputedStyle(ques).getPropertyValue("opacity") == 0 &&
+    window.getComputedStyle(qutxt).getPropertyValue("opacity") == 0
   ) {
-    icon.setAttribute(
-      "d",
-      "M320.09,542.4l-4,4.13-3-2.9,4-4.14-4.07-4,2.91-3,4.08,4,4-4.13,3,2.91-4,4.13,4,3.92-2.92,3Z"
-    );
-  } else if (
-    icon.getAttribute(
-      "d",
-      "M320.09,542.4l-4,4.13-3-2.9,4-4.14-4.07-4,2.91-3,4.08,4,4-4.13,3,2.91-4,4.13,4,3.92-2.92,3Z"
-    ) == false
-  ) {
-    icon.setAttribute(
-      "d",
-      "M737.23,357.41l-5.78.09-.06-4.16,5.77-.09,4.18-.07,5.77-.09.07,4.16-5.77.09Z"
-    );
+    gsap.to("#ques, #quesTxt", {
+      opacity: 1,
+      duration: 2,
+      ease: "power",
+    });
   }
 }
