@@ -20,6 +20,7 @@ let tl = gsap.timeline({
 let rotationSnap = 15;
 //set origin to center
 gsap.set("#inner-circle", { transformOrigin: "50% 50%" });
+
 Draggable.create("#inner-circle", {
   type: "rotation",
   inertia: true,
@@ -28,6 +29,7 @@ Draggable.create("#inner-circle", {
     //this function makes the end value snap to 15-degree increments
     console.log(gsap.getProperty("#inner-circle", "rotation"));
     update();
+
     return Math.round(endValue / rotationSnap) * rotationSnap;
   },
   onDrag: function () {
