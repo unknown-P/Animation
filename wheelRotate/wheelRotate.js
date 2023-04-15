@@ -17,13 +17,14 @@ let tl = gsap.timeline({
 
 //we have total 15 questions,
 //so 15 mod 360 is 15.
-let rotationSnap = 15;
+let rotationSnap = 22.5;
 //set origin to center
 gsap.set("#inner-circle", { transformOrigin: "50% 50%" });
 
 Draggable.create("#inner-circle", {
   type: "rotation",
   inertia: true,
+  edgeResistance: 1,
   clickable: "#inner-circle",
   snap: function (endValue) {
     //this function makes the end value snap to 15-degree increments
