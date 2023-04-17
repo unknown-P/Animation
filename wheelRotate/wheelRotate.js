@@ -30,19 +30,20 @@ Draggable.create("#inner-circle", {
   snap: function (endValue) {
     //this function makes the end value snap to 15-degree increments
     // console.log(gsap.getProperty("#inner-circle", "rotation"));
-    update();
+    // update();
     return Math.round(endValue / rotationSnap) * rotationSnap;
   },
   onDrag: function () {
     console.log(this.getDirection());
     gsap.set("#ques,#quesTxt,#quTxt", { opacity: 0 });
-    update();
+    // update();
   },
   onDragStart: function () {
     gsap.set("#ques,#quesTxt,#quTxt", { opacity: 0 });
   },
   onDragEnd: function () {
     gsap.set("#ques,#quesTxt,#quTxt", { opacity: 0 });
+    update();
   },
   minRotation: 5,
 });
@@ -78,8 +79,7 @@ gsap.ticker.add((time, deltaTime) => {
   // console.log(gsap.getProperty("#inner-circle", "rotation"));
 
   velocity *= 0.8;
-  gsap.set("#ques", { opacity: 0, ease: "power" });
-  gsap.set("#quesTxt", { opacity: 0, ease: "power" });
+  gsap.set("#ques, #quesTxt, #quTxt", { opacity: 0 });
   update();
 });
 
