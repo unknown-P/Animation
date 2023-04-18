@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./bird.css" />
+    <title>Bird</title>
+  </head>
+  <body id="body">
+    <div id="container">
+      <div id="cube" class="box">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none" />
+          <path
+            d="M224,177.3V78.7a8.1,8.1,0,0,0-4.1-7l-88-49.5a7.8,7.8,0,0,0-7.8,0l-88,49.5a8.1,8.1,0,0,0-4.1,7v98.6a8.1,8.1,0,0,0,4.1,7l88,49.5a7.8,7.8,0,0,0,7.8,0l88-49.5A8.1,8.1,0,0,0,224,177.3Z"
+            fill="rgb(255, 0, 128)"
+            stroke="#000"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="8"
+          />
+          <polyline
+            points="222.9 74.6 128.9 128 33.1 74.6"
+            fill="none"
+            stroke="#000"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="8"
+          />
+          <line
+            x1="128.9"
+            y1="128"
+            x2="128"
+            y2="234.8"
+            fill="none"
+            stroke="#000"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="8"
+          />
+        </svg>
+      </div>
+      <!-- <div id="box2" class="box">box2</div>
+      <div id="box3" class="box">box3</div>
+      <div id="box4" class="box">box4</div>
+      <div id="box5" class="box">box5</div>
+      <div id="box6" class="box">box6</div> -->
+
+      <div id="Area1" class="dropArea">Drop Area1</div>
+      <div id="Area2" class="dropArea">Drop Area2</div>
+      <div id="text1">Text Reveal on drag end</div>
+    </div>
+
+    <script src="../gsap-3.11.5-premium/gsap.min.js"></script>
+    <script src="../gsap-3.11.5-premium/Draggable.min.js"></script>
+    <script src="../gsap-3.11.5-premium/InertiaPlugin.min.js"></script>
+    <script src="./jquery-3.6.3.js"></script>
+    <script src="./bird.js"></script>
+  </body>
+</html>
