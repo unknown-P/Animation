@@ -15,12 +15,12 @@ h1 {
 }
 #container {
   position: relative;
-  /* height: 400px; */
+  height: 600px;
 }
 .box {
   position: absolute;
-  width: 200px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   text-align: center;
   line-height: 80px;
   font-size: 20px;
@@ -32,8 +32,16 @@ h1 {
 }
 #cube {
   /* fill: rgb(255, 0, 128); */
-  top: 0px;
+  top: 37vh;
+  left: 45%;
+  /* left: 100vh; */
 }
+/* #cube > path,
+#cube > polyline,
+#cube > line {
+  fill: rgb(255, 0, 255);
+  stroke: aliceblue;
+} */
 /* #box2 {
   background-color: blue;
   top: 88px;
@@ -69,8 +77,8 @@ code {
 }
 
 .dropArea {
-  width: 250px;
-  height: 250px;
+  width: 165px;
+  height: 110px;
   background: #ccc;
   position: absolute;
   left: 600px;
@@ -78,29 +86,49 @@ code {
   padding: 20px;
 }
 #Area1 {
-  position: relative;
-  margin-top: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  margin-left: 0px;
+  position: absolute;
+  top: 1vh;
+  left: 15%;
   background-color: rgb(146, 21, 199);
 }
 #Area2 {
-  position: relative;
-  margin-top: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  margin-left: 0px;
+  position: absolute;
+  top: 1vh;
+  left: 70%;
   background-color: rgb(131, 199, 21);
+}
+#Area3 {
+  position: absolute;
+  top: 37vh;
+  left: 15%;
+  background-color: rgb(37, 74, 185);
+}
+#Area4 {
+  position: absolute;
+  top: 37vh;
+  left: 70%;
+  background-color: rgb(199, 166, 21);
+}
+#Area5 {
+  position: absolute;
+  top: 72vh;
+  left: 15%;
+  background-color: rgb(199, 21, 63);
+}
+#Area6 {
+  position: relative;
+  top: 72vh;
+  left: 70%;
+  background-color: rgb(21, 199, 80);
 }
 .highlight {
   outline: brown;
   stroke: yellow;
 }
 #text1 {
-  position: relative;
-  margin-top: -550px;
-  margin-left: 635px;
+  position: absolute;
+  top: 18vh;
+  left: 16%;
   color: white;
   opacity: 0;
 }
