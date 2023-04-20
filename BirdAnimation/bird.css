@@ -1,134 +1,246 @@
 body {
-  background-color: rgba(0, 0, 0, 0);
-  color: #ccc;
-  /* width: 4000px; */
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  /* padding: 10px; */
-  cursor: url("./assets/hand-open.svg") 16 16, pointer !important;
-}
-h1 {
-  font-size: 40px;
-  font-weight: 300;
-  color: white;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(29, 22, 22);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
 }
 #container {
   position: relative;
-  height: 600px;
+  width: 4000px;
+  height: 1440px;
 }
+#section1 {
+  position: absolute;
+  top: 50%;
+  width: 1200px;
+}
+#section2 {
+  position: absolute;
+  top: 50%;
+  left: 34%;
+  width: 1200px;
+}
+#section3 {
+  position: absolute;
+  top: 50%;
+  left: 68%;
+  width: 1200px;
+}
+#birdAppear1 {
+  position: absolute;
+  opacity: 0;
+  margin-left: 50%;
+}
+#birdAppear2 {
+  position: absolute;
+  opacity: 0;
+  margin-left: 50%;
+}
+#birdAppear3 {
+  position: absolute;
+  opacity: 0;
+  margin-left: 50%;
+}
+#birdThrow1 {
+  position: absolute;
+  opacity: 0;
+  margin-left: 50%;
+}
+#birdThrow2 {
+  position: absolute;
+  opacity: 0;
+  margin-left: 50%;
+}
+#birdThrow3 {
+  position: absolute;
+  opacity: 0;
+  margin-left: 50%;
+}
+
+/*-------------------------------------------------------------   
+First we need to create our container for later reference
+-------------------------------------------------------------*/
 .box {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  margin-top: 1.3%;
+  margin-left: 54%;
   text-align: center;
-  line-height: 80px;
-  font-size: 20px;
-  color: white;
-  cursor: url("./assets/hand-open.svg") 16 16, pointer !important;
-
-  /* border-radius: 10px; */
-  /* border: 2px solid black; */
+  line-height: 5;
 }
-#cube {
-  /* fill: rgb(255, 0, 128); */
-  top: 37vh;
-  left: 45%;
-  /* left: 100vh; */
+.box2 {
+  position: absolute;
+  width: 50px;
+  margin-top: 1.3%;
+  margin-left: 54%;
+  text-align: center;
+  line-height: 5;
 }
-/* #cube > path,
-#cube > polyline,
-#cube > line {
-  fill: rgb(255, 0, 255);
-  stroke: aliceblue;
-} */
-/* #box2 {
-  background-color: blue;
-  top: 88px;
-}
-#box3 {
-  background-color: green;
-  top: 176px;
-}
-#box4 {
-  background-color: rgb(255, 64, 128);
-  top: 264px;
-}
-#box5 {
-  background-color: rgb(0, 166, 255);
-  top: 352px;
-}
-#box6 {
-  background-color: rgb(221, 228, 10);
-  top: 440px;
-} */
-a {
-  color: white;
-}
-.highlight {
-  border: 4px solid yellow;
-  width: 196px;
-  height: 76px;
-  line-height: 76px;
-}
-code {
-  color: white;
-  font-size: 1.2em;
+.box3 {
+  position: absolute;
+  width: 50px;
+  margin-top: 1.3%;
+  margin-left: 54%;
+  text-align: center;
+  line-height: 5;
 }
 
-.dropArea {
-  width: 165px;
-  height: 110px;
-  background: #ccc;
-  position: absolute;
-  left: 600px;
-  color: black;
-  padding: 20px;
-}
-#Area1 {
-  position: absolute;
-  top: 1vh;
-  left: 15%;
-  background-color: rgb(146, 21, 199);
-}
-#Area2 {
-  position: absolute;
-  top: 1vh;
-  left: 70%;
-  background-color: rgb(131, 199, 21);
-}
-#Area3 {
-  position: absolute;
-  top: 37vh;
-  left: 15%;
-  background-color: rgb(37, 74, 185);
-}
-#Area4 {
-  position: absolute;
-  top: 37vh;
-  left: 70%;
-  background-color: rgb(199, 166, 21);
-}
-#Area5 {
-  position: absolute;
-  top: 72vh;
-  left: 15%;
-  background-color: rgb(199, 21, 63);
-}
-#Area6 {
+/*---------------------------------------------------------------------------
+The box-wrapper is our container. This is where we nail our box together. 
+  -set this to relative position for child elements to reference to.
+  -transform-style is set to preserve-3d because I wanted to keep the look as the text turns with the box.. 
+---------------------------------------------------------------------------*/
+
+.box-wrapper {
   position: relative;
-  top: 72vh;
-  left: 70%;
-  background-color: rgb(21, 199, 80);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
-.highlight {
-  outline: brown;
-  stroke: yellow;
+.box-wrapper2 {
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
-#text1 {
+.box-wrapper3 {
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+/*-------------------------------------------------------------------------
+Giving box it's dimensions
+-------------------------------------------------------------------------*/
+.box-wrapper div {
+  width: 52px;
+  height: 52px;
   position: absolute;
-  top: 18vh;
-  left: 16%;
-  color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.box-wrapper2 div {
+  width: 52px;
+  height: 52px;
+  position: absolute;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.box-wrapper3 div {
+  width: 52px;
+  height: 52px;
+  position: absolute;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+/*----------------------------------------------------------------------
+These are our cube's 6 sides, using translate to make it whole. 
+-----------------------------------------------------------------------*/
+.front {
+  transform: translateZ(27px) rotateY(0deg);
+}
+.back {
+  transform: translateZ(-27px) rotateY(180deg);
+}
+.top {
+  transform: translateY(-27px) rotateX(90deg);
+}
+.bottom {
+  transform: translateY(27px) rotateX(-90deg);
+}
+
+.right {
+  transform: translateX(27px) rotateY(90deg);
+}
+.left {
+  transform: translateX(-27px) rotateY(270deg);
+}
+
+/*-----------------------------------------------------------------------
+Wrapper for css cube
+-------------------------------------------------------------------------*/
+
+.box .box-wrapper {
+  transform: rotateX(-30deg) rotateY(-40deg);
+}
+.box .box-wrapper div {
+  background-color: yellow;
+}
+.box2 .box-wrapper2 {
+  transform: rotateX(-30deg) rotateY(-40deg);
+}
+.box2 .box-wrapper2 div {
+  background-color: yellow;
+}
+.box3 .box-wrapper3 {
+  transform: rotateX(-30deg) rotateY(-40deg);
+}
+.box3 .box-wrapper3 div {
+  background-color: yellow;
+}
+.icons {
+  position: absolute;
+  margin-left: 37%;
+  margin-top: -7%;
+  z-index: 1;
+}
+.icon {
   opacity: 0;
+  width: 15vh;
+  height: 15vh;
+}
+.textPos {
+  position: absolute;
+  margin-left: 37%;
+  margin-top: -10%;
+}
+.text {
+  display: inline-block;
+  opacity: 0;
+  width: 16vh;
+  height: 20vh;
+}
+.icons2 {
+  position: absolute;
+  margin-left: 40%;
+  margin-top: -7%;
+  z-index: 1;
+}
+.iconv2 {
+  opacity: 0;
+  width: 15vh;
+  height: 15vh;
+}
+.textPos2 {
+  position: absolute;
+  margin-left: 37%;
+  margin-top: -61%;
+}
+.textv2 {
+  display: inline-block;
+  opacity: 0;
+  width: 20vh;
+  height: 20vh;
+}
+.icons3 {
+  position: absolute;
+  margin-left: 37%;
+  margin-top: -7%;
+  z-index: 1;
+}
+.iconv3 {
+  opacity: 0;
+  width: 15vh;
+  height: 15vh;
+}
+.textPos3 {
+  position: absolute;
+  margin-left: 37%;
+  margin-top: -61%;
+}
+.textv3 {
+  display: inline-block;
+  opacity: 0;
+  width: 20vh;
+  height: 20vh;
 }
