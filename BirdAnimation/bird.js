@@ -20,65 +20,39 @@ let icons = document.querySelector(".icons");
 let icons2 = document.querySelector(".icons2");
 let icons3 = document.querySelector(".icons3");
 
-// add icons dynamically
-let icon1 = document.createElement("img");
+// a function to set the attributes of an icon
+function setIconAttributes(icon, src, id) {
+  icon.setAttribute("src", src);
+  icon.setAttribute("class", "icon iconv2 iconv3 " + id);
+  icon.setAttribute("id", id);
+  icon.addEventListener("click", function () {
+    handleClick1(this.id);
+  });
+}
 
-icon1.setAttribute("src", "./assets/icon1.png");
-icon1.setAttribute("class", "icon iconv2 iconv3 icon1");
-icon1.setAttribute("onclick", "handleClick1(this)");
+// an array of icon sources and ids
+let iconData = [
+  ["./assets/icon1.png", "icon1"],
+  ["./assets/icon2.png", "icon2"],
+  ["./assets/icon3.png", "icon3"],
+  ["./assets/icon4.png", "icon4"],
+  ["./assets/icon5.png", "icon5"],
+  ["./assets/icon6.png", "icon6"],
+];
 
-icons.appendChild(icon1);
-icons2.appendChild(icon1.cloneNode(true));
-icons3.appendChild(icon1.cloneNode(true));
+// a loop to create and append the icons
+for (let data of iconData) {
+  let icon = document.createElement("img");
+  setIconAttributes(icon, data[0], data[1]);
+  icons.appendChild(icon);
+  icons2.appendChild(icon.cloneNode(true));
+  icons3.appendChild(icon.cloneNode(true));
+}
 
-let icon2 = document.createElement("img");
-icon2.setAttribute("src", "./assets/icon2.png");
-icon2.setAttribute("class", "icon iconv2 iconv3 icon2");
-icon2.setAttribute("onclick", "handleClick2(this)");
-
-icons.appendChild(icon2);
-icons2.appendChild(icon2.cloneNode(true));
-icons3.appendChild(icon2.cloneNode(true));
-
-let icon3 = document.createElement("img");
-icon3.setAttribute("src", "./assets/icon3.png");
-icon3.setAttribute("class", "icon iconv2 iconv3 icon3");
-icon3.setAttribute("onclick", "handleClick3(this)");
-
-icons.appendChild(icon3);
-icons2.appendChild(icon3.cloneNode(true));
-icons3.appendChild(icon3.cloneNode(true));
-
-let icon4 = document.createElement("img");
-icon4.setAttribute("src", "./assets/icon4.png");
-icon4.setAttribute("class", "icon iconv2 iconv3 icon4");
-icon4.setAttribute("onclick", "handleClick4(this)");
-
-icons.appendChild(icon4);
-icons2.appendChild(icon4.cloneNode(true));
-icons3.appendChild(icon4.cloneNode(true));
-
-let icon5 = document.createElement("img");
-icon5.setAttribute("src", "./assets/icon5.png");
-icon5.setAttribute("class", "icon iconv2 iconv3 icon5");
-icon5.setAttribute("onclick", "handleClick5(this)");
-
-icons.appendChild(icon5);
-icons2.appendChild(icon5.cloneNode(true));
-icons3.appendChild(icon5.cloneNode(true));
-
-let icon6 = document.createElement("img");
-icon6.setAttribute("src", "./assets/icon6.png");
-icon6.setAttribute("class", "icon iconv2 iconv3 icon6");
-icon6.setAttribute("onclick", "handleClick6(this) handle3Click6(this)");
-
-icons.appendChild(icon6);
-icons2.appendChild(icon6.cloneNode(true));
-icons3.appendChild(icon6.cloneNode(true));
-
+//remove unneeded classes from icons
 if (icons && icons2 && icons3) {
   let iconsChildren = icons.children;
-  console.log(iconsChildren);
+  // console.log(iconsChildren);
   for (let i = 0; i < iconsChildren.length; i++) {
     iconsChildren[i].classList.remove("iconv2", "iconv3");
   }
@@ -90,146 +64,418 @@ if (icons && icons2 && icons3) {
 
   let icons3Children = icons3.children;
   for (let i = 0; i < icons3Children.length; i++) {
-    icons3Children[i].classList.remove("icon", "iconv2", "text6");
+    icons3Children[i].classList.remove("icon", "iconv2");
   }
 }
 
 //Declaring dynamic text for images
-let someText1 = "Icon1!";
-let newParagraph = document.createElement("p");
-newParagraph.setAttribute("class", "text text1");
-newParagraph.textContent = someText1;
-document.querySelector(".textPos").appendChild(newParagraph);
+let texts = ["Icon1!", "Icon2!", "Icon3!", "Icon4!", "Icon5!", "Icon6!"];
 
-let someText2 = "Icon2!";
-let newParagraph2 = document.createElement("p");
-newParagraph2.setAttribute("class", "text text2");
-newParagraph2.textContent = someText2;
-document.querySelector(".textPos").appendChild(newParagraph2);
+// Loop through the array and create a paragraph element for each text
+texts.forEach((text, index) => {
+  // Create a new paragraph element
+  let newParagraph = document.createElement("p");
 
-let someText3 = "Icon3!";
-let newParagraph3 = document.createElement("p");
-newParagraph3.setAttribute("class", "text text3");
-newParagraph3.textContent = someText3;
-document.querySelector(".textPos").appendChild(newParagraph3);
+  // Set the class attribute to "text text1", "text text2", or "text text3" depending on the index
+  newParagraph.setAttribute(
+    "class",
+    `text text${index + 1} text2_${index + 1} text3_${index + 1}`
+  );
 
-let someText4 = "Icon4!";
-let newParagraph4 = document.createElement("p");
-newParagraph4.setAttribute("class", "text text4");
-newParagraph4.textContent = someText4;
-document.querySelector(".textPos").appendChild(newParagraph4);
+  // Set the text content to the corresponding text
+  newParagraph.textContent = text;
 
-let someText5 = "Icon5!";
-let newParagraph5 = document.createElement("p");
-newParagraph5.setAttribute("class", "text text5");
-newParagraph5.textContent = someText5;
-document.querySelector(".textPos").appendChild(newParagraph5);
+  // Get all the elements with class "textPos"
+  let textPosElements = document.querySelectorAll(
+    ".textPos, .textPos2, .textPos3"
+  );
 
-let someText6 = "Icon6!";
-let newParagraph6 = document.createElement("p");
-newParagraph6.setAttribute("class", "text text6 text3_6");
-newParagraph6.textContent = someText6;
-document.querySelector(".textPos").appendChild(newParagraph6);
+  // Loop through the elements and append the paragraph element to each one
+  textPosElements.forEach((element) => {
+    element.appendChild(newParagraph.cloneNode(true));
+  });
+});
 
-//functions to handle click on images
-function handleClick1(q) {
-  let text = document.querySelector(".text");
-  if (window.getComputedStyle(text).getPropertyValue("opacity") == 0) {
-    gsap.to(".text1", {
+// //functions to handle click on images
+// function handleClick1(id) {
+//   let text1 = document.querySelector(".text1"),
+//     text2 = document.querySelector(".text2"),
+//     text3 = document.querySelector(".text3"),
+//     text4 = document.querySelector(".text4"),
+//     text5 = document.querySelector(".text5"),
+//     text6 = document.querySelector(".text6");
+
+//   switch (id) {
+//     case "icon1": {
+//       if (window.getComputedStyle(text1).getPropertyValue("opacity") == 0) {
+//         gsap.to(".text1", {
+//           ease: "none",
+//           duration: 0.5,
+//           autoAlpha: 1,
+//         });
+//       } else if (
+//         window.getComputedStyle(text1).getPropertyValue("opacity") == 1
+//       ) {
+//         gsap.to(".text1", {
+//           ease: "none",
+//           duration: 0.5,
+//           autoAlpha: 0,
+//         });
+//       } else {
+//         gsap.to(
+//           ".text1",
+//           {
+//             autoAlpha: 0,
+//           },
+//           "<0.5"
+//         );
+//       }
+//       break;
+//     }
+//     case "icon2": {
+//       if (window.getComputedStyle(text2).getPropertyValue("opacity") == 0) {
+//         gsap.to(".text2", {
+//           ease: "none",
+//           duration: 0.5,
+//           autoAlpha: 1,
+//         });
+//       } else if (
+//         window.getComputedStyle(text2).getPropertyValue("opacity") == 1
+//       ) {
+//         gsap.to(".text2", {
+//           ease: "none",
+//           duration: 0.5,
+//           autoAlpha: 0,
+//         });
+//       } else {
+//         gsap.to(
+//           ".text1",
+//           {
+//             autoAlpha: 0,
+//           },
+//           "<0.5"
+//         );
+//       }
+//       break;
+//     }
+
+//     case "icon3": {
+//       if (window.getComputedStyle(text3).getPropertyValue("opacity") == 0) {
+//         gsap.to(".text3", {
+//           ease: "none",
+//           duration: 0.5,
+//           autoAlpha: 1,
+//         });
+//       } else if (
+//         window.getComputedStyle(text3).getPropertyValue("opacity") == 1
+//       ) {
+//         gsap.to(".text3", {
+//           ease: "none",
+//           duration: 0.5,
+//           autoAlpha: 0,
+//         });
+//       } else {
+//         gsap.to(
+//           ".text3",
+//           {
+//             autoAlpha: 0,
+//           },
+//           "<0.5"
+//         );
+//       }
+//       break;
+//     }
+
+//     case "icon4": {
+//       if (window.getComputedStyle(text4).getPropertyValue("opacity") == 0) {
+//         gsap.to(".text4", {
+//           ease: "none",
+//           duration: 0.5,
+//           autoAlpha: 1,
+//         });
+//       } else if (
+//         window.getComputedStyle(text4).getPropertyValue("opacity") == 1
+//       ) {
+//         gsap.to(".text4", {
+//           ease: "none",
+//           duration: 0.5,
+//           autoAlpha: 0,
+//         });
+//       } else {
+//         gsap.to(
+//           ".text4",
+//           {
+//             autoAlpha: 0,
+//           },
+//           "<0.5"
+//         );
+//       }
+//       break;
+//     }
+//     case "icon5": {
+//       if (window.getComputedStyle(text5).getPropertyValue("opacity") == 0) {
+//         gsap.to(".text5", {
+//           ease: "none",
+//           duration: 0.5,
+//           autoAlpha: 1,
+//         });
+//       } else if (
+//         window.getComputedStyle(text5).getPropertyValue("opacity") == 1
+//       ) {
+//         gsap.to(".text5", {
+//           ease: "none",
+//           duration: 0.5,
+//           autoAlpha: 0,
+//         });
+//       } else {
+//         gsap.to(
+//           ".text5",
+//           {
+//             autoAlpha: 0,
+//           },
+//           "<0.5"
+//         );
+//       }
+//       break;
+//     }
+//     case "icon6": {
+//       if (window.getComputedStyle(text6).getPropertyValue("opacity") == 0) {
+//         gsap.to(".text6", {
+//           ease: "none",
+//           duration: 0.5,
+//           autoAlpha: 1,
+//         });
+//       } else if (
+//         window.getComputedStyle(text6).getPropertyValue("opacity") == 1
+//       ) {
+//         gsap.to(".text6", {
+//           ease: "none",
+//           duration: 0.5,
+//           autoAlpha: 0,
+//         });
+//       } else {
+//         gsap.to(
+//           ".text6",
+//           {
+//             autoAlpha: 0,
+//           },
+//           "<0.5"
+//         );
+//       }
+//       break;
+//     }
+//     default: {
+//       // any other case
+//     }
+//   }
+// }
+
+//remove unneeded classes from textPos
+let text1 = document.querySelector(".textPos");
+let text2 = document.querySelector(".textPos2");
+let text3 = document.querySelector(".textPos3");
+
+// if (text1 && text2 && text3) {
+//   let text1Children = text1.children;
+//   // console.log(text1Children);
+//   for (let i = 0; i < text1Children.length; i++) {
+//     text1Children[i].classList.remove(
+//       "text2_1",
+//       "text2_2",
+//       "text2_3",
+//       "text2_4",
+//       "text2_5",
+//       "text2_6",
+//       "text3_1"
+//     );
+//   }
+
+//   let text2Children = text2.children;
+//   // console.log(text1Children);
+//   for (let i = 0; i < text2Children.length; i++) {
+//     text2Children[i].classList.remove("text1", "text3_1");
+//   }
+
+//   let text3Children = text3.children;
+//   // console.log(text1Children);
+//   for (let i = 0; i < text3Children.length; i++) {
+//     text3Children[i].classList.remove("text2_1", "text1");
+//   }
+// }
+
+// Define an array of classes to remove
+let classesToRemove1 = [
+  "text2_1",
+  "text2_2",
+  "text2_3",
+  "text2_4",
+  "text2_5",
+  "text2_6",
+  "text3_1",
+  "text3_2",
+  "text3_3",
+  "text3_4",
+  "text3_5",
+  "text3_6",
+];
+
+// Check if text1 exists
+if (text1) {
+  // Get the children of text1
+  let text1Children = text1.children;
+
+  // Loop through the children
+  for (let i = 0; i < text1Children.length; i++) {
+    // Loop through the classes to remove
+    for (let j = 0; j < classesToRemove1.length; j++) {
+      // Remove the class from the child element
+      text1Children[i].classList.remove(classesToRemove1[j]);
+    }
+  }
+}
+
+// Define an array of classes to remove
+let classesToRemove2 = [
+  "text1",
+  "text2",
+  "text3",
+  "text4",
+  "text5",
+  "text6",
+  "text3_1",
+  "text3_2",
+  "text3_3",
+  "text3_4",
+  "text3_5",
+  "text3_6",
+];
+
+// Check if text1 exists
+if (text2) {
+  // Get the children of text1
+  let text2Children = text2.children;
+
+  // Loop through the children
+  for (let i = 0; i < text2Children.length; i++) {
+    // Loop through the classes to remove
+    for (let j = 0; j < classesToRemove2.length; j++) {
+      // Remove the class from the child element
+      text2Children[i].classList.remove(classesToRemove2[j]);
+    }
+  }
+}
+
+// Define an array of classes to remove
+let classesToRemove3 = [
+  "text1",
+  "text2",
+  "text3",
+  "text4",
+  "text5",
+  "text6",
+  "text2_1",
+  "text2_2",
+  "text2_3",
+  "text2_4",
+  "text2_5",
+  "text2_6",
+];
+
+// Check if text1 exists
+if (text3) {
+  // Get the children of text1
+  let text3Children = text3.children;
+
+  // Loop through the children
+  for (let i = 0; i < text3Children.length; i++) {
+    // Loop through the classes to remove
+    for (let j = 0; j < classesToRemove3.length; j++) {
+      // Remove the class from the child element
+      text3Children[i].classList.remove(classesToRemove3[j]);
+    }
+  }
+}
+
+// functions to handle click on images
+function handleClick1(id) {
+  //select all text elements
+  let texts = document.querySelectorAll(
+    ".text1, .text2, .text3, .text4, .text5, .text6"
+  );
+  //find the index of the text element that matches the id
+  let index = parseInt(id.slice(-1)) - 1;
+  //toggle the opacity of the text element using gsap
+  gsap.to(texts[index], {
+    ease: "none",
+    duration: 0.5,
+    autoAlpha: function () {
+      if (texts[index].style.opacity == 0) {
+        return 1;
+      } else {
+        return 0;
+      }
+    },
+  });
+}
+
+icons2.addEventListener("click", function () {
+  handleClick2(this.id);
+});
+
+// functions to handle click on images
+function handleClick2(id) {
+  //select all text elements
+  let texts = document.querySelectorAll(
+    ".text2_1, .text2_2, .text2_3, .text2_4, .text2_5, .text2_6"
+  );
+  //find the index of the text element that matches the id
+  //use a regular expression to extract the number from the id
+  // let index = id.match(/\d+/) - 1;
+  for (let i = 0; i < texts.length; i++) {
+    // console.log(texts[i]);
+    //toggle the opacity of the text element using gsap
+    gsap.to(texts[i], {
       ease: "none",
       duration: 0.5,
-      autoAlpha: 1,
-    });
-  } else if (window.getComputedStyle(text).getPropertyValue("opacity") == 1) {
-    gsap.to(".text1", {
-      ease: "none",
-      duration: 0.2,
-      autoAlpha: 0,
-    });
-  } else {
-    gsap.set(
-      text,
-      {
-        autoAlpha: 0,
+      autoAlpha: function () {
+        if (texts[i].style.opacity == 0) {
+          return 1;
+        } else {
+          return 0;
+        }
       },
-      "<=1"
-    );
+    });
   }
 }
 
-function handleClick2(q) {
-  let text = document.querySelector(".text");
-  if (window.getComputedStyle(text).getPropertyValue("opacity") == 0) {
-    gsap.to(".text2", {
+icons3.addEventListener("click", function () {
+  handleClick2(this.id);
+});
+
+// functions to handle click on images
+function handleClick3(id) {
+  //select all text elements
+  let texts = document.querySelectorAll(
+    ".text3_1, .text3_2, .text3_3, .text3_4, .text3_5, .text3_6"
+  );
+  //find the index of the text element that matches the id
+  //use a regular expression to extract the number from the id
+  // let index = id.match(/\d+/) - 1;
+  for (let i = 0; i < texts.length; i++) {
+    console.log(texts[i]);
+    //toggle the opacity of the text element using gsap
+    gsap.to(texts[i], {
       ease: "none",
       duration: 0.5,
-      autoAlpha: 1,
-    });
-  } else if (window.getComputedStyle(text).getPropertyValue("opacity") == 1) {
-    gsap.to(".text2", {
-      ease: "none",
-      duration: 0.2,
-      autoAlpha: 0,
-    });
-  } else {
-    gsap.set(
-      text,
-      {
-        autoAlpha: 0,
+      autoAlpha: function () {
+        if (texts[i].style.opacity == 0) {
+          return 1;
+        } else {
+          return 0;
+        }
       },
-      "<=1"
-    );
-  }
-}
-function handleClick3(q) {
-  let text = document.querySelector(".text");
-  if (window.getComputedStyle(text).getPropertyValue("opacity") == 0) {
-    gsap.to(".text3", {
-      ease: "none",
-      duration: 0.5,
-      autoAlpha: 1,
-    });
-  } else {
-    gsap.set(".text3", {
-      ease: "none",
-      duration: 0.2,
-      opacity: 0,
     });
   }
-}
-function handleClick4(q) {
-  let text = document.querySelector(".text");
-  text.style = "opacity:0";
-  text.classList.toggle(".text");
-  gsap.to(".text4", {
-    ease: "none",
-    duration: 0.5,
-    autoAlpha: 1,
-  });
-}
-function handleClick5(q) {
-  console.log(q.name + "clicked from icon");
-  gsap.to(".text5", {
-    ease: "none",
-    duration: 0.5,
-    autoAlpha: 1,
-  });
-}
-function handleClick6(q) {
-  console.log(q.name + "clicked from icon");
-  gsap.to(".text6", {
-    ease: "none",
-    duration: 0.5,
-    autoAlpha: 1,
-  });
-}
-function handle3Click6(q) {
-  console.log(q.name + "clicked from icon");
-  gsap.to(".text3_6", {
-    ease: "none",
-    duration: 0.5,
-    autoAlpha: 1,
-  });
 }
 
 //creating a timeline
@@ -284,6 +530,13 @@ tl.to(
 );
 
 tl.to(".icon", { autoAlpha: 0 }, "<3");
+
+// tl.to(".text1", { autoAlpha: 0 }, "<0");
+// tl.to(".text2", { autoAlpha: 0 }, "<0");
+// tl.to(".text3", { autoAlpha: 0 }, "<0");
+// tl.to(".text4", { autoAlpha: 0 }, "<0");
+// tl.to(".text5", { autoAlpha: 0 }, "<0");
+// tl.to(".text6", { autoAlpha: 0 }, "<0");
 
 //section 2 starts from here
 tl.to(birdAppear2, { duration: 3, ease: "none", autoAlpha: 1 }, 7);

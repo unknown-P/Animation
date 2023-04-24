@@ -191,15 +191,24 @@ Wrapper for css cube
 }
 .textPos {
   position: absolute;
-  margin-left: 37%;
+  margin-left: 40%;
   margin-top: -10%;
 }
 .text {
   display: inline-block;
-  opacity: 0;
+  /* opacity: 0; */
   width: 16vh;
   height: 20vh;
 }
+.text1,
+.text2,
+.text3,
+.text4,
+.text5,
+.text6 {
+  opacity: 0;
+}
+
 .icons2 {
   position: absolute;
   margin-left: 40%;
@@ -213,14 +222,22 @@ Wrapper for css cube
 }
 .textPos2 {
   position: absolute;
-  margin-left: 37%;
-  margin-top: -61%;
+  margin-left: 40%;
+  margin-top: -10%;
 }
 .textv2 {
   display: inline-block;
   opacity: 0;
   width: 20vh;
   height: 20vh;
+}
+.text2_1,
+.text2_2,
+.text2_3,
+.text2_4,
+.text2_5,
+.text2_6 {
+  opacity: 0;
 }
 .icons3 {
   position: absolute;
@@ -236,11 +253,19 @@ Wrapper for css cube
 .textPos3 {
   position: absolute;
   margin-left: 37%;
-  margin-top: -61%;
+  margin-top: -10%;
 }
 .textv3 {
   display: inline-block;
-  opacity: 0;
+  /* opacity: 0; */
   width: 20vh;
   height: 20vh;
+}
+.text3_1,
+.text3_2,
+.text3_3,
+.text3_4,
+.text3_5,
+.text3_6 {
+  /* opacity: 0; */
 }
