@@ -21,14 +21,11 @@ let icons2 = document.querySelector(".icons2");
 let icons3 = document.querySelector(".icons3");
 
 // a function to set the attributes of an icon
-function setIconAttributes(icon, src, id) {
+let setIconAttributes = (icon, src, id) => {
   icon.setAttribute("src", src);
   icon.setAttribute("class", "icon iconv2 iconv3 " + id);
   icon.setAttribute("id", id);
-  icon.addEventListener("click", function () {
-    handleClick1(this.id);
-  });
-}
+};
 
 // an array of icon sources and ids
 let iconData = [
@@ -96,212 +93,10 @@ texts.forEach((text, index) => {
   });
 });
 
-// //functions to handle click on images
-// function handleClick1(id) {
-//   let text1 = document.querySelector(".text1"),
-//     text2 = document.querySelector(".text2"),
-//     text3 = document.querySelector(".text3"),
-//     text4 = document.querySelector(".text4"),
-//     text5 = document.querySelector(".text5"),
-//     text6 = document.querySelector(".text6");
-
-//   switch (id) {
-//     case "icon1": {
-//       if (window.getComputedStyle(text1).getPropertyValue("opacity") == 0) {
-//         gsap.to(".text1", {
-//           ease: "none",
-//           duration: 0.5,
-//           autoAlpha: 1,
-//         });
-//       } else if (
-//         window.getComputedStyle(text1).getPropertyValue("opacity") == 1
-//       ) {
-//         gsap.to(".text1", {
-//           ease: "none",
-//           duration: 0.5,
-//           autoAlpha: 0,
-//         });
-//       } else {
-//         gsap.to(
-//           ".text1",
-//           {
-//             autoAlpha: 0,
-//           },
-//           "<0.5"
-//         );
-//       }
-//       break;
-//     }
-//     case "icon2": {
-//       if (window.getComputedStyle(text2).getPropertyValue("opacity") == 0) {
-//         gsap.to(".text2", {
-//           ease: "none",
-//           duration: 0.5,
-//           autoAlpha: 1,
-//         });
-//       } else if (
-//         window.getComputedStyle(text2).getPropertyValue("opacity") == 1
-//       ) {
-//         gsap.to(".text2", {
-//           ease: "none",
-//           duration: 0.5,
-//           autoAlpha: 0,
-//         });
-//       } else {
-//         gsap.to(
-//           ".text1",
-//           {
-//             autoAlpha: 0,
-//           },
-//           "<0.5"
-//         );
-//       }
-//       break;
-//     }
-
-//     case "icon3": {
-//       if (window.getComputedStyle(text3).getPropertyValue("opacity") == 0) {
-//         gsap.to(".text3", {
-//           ease: "none",
-//           duration: 0.5,
-//           autoAlpha: 1,
-//         });
-//       } else if (
-//         window.getComputedStyle(text3).getPropertyValue("opacity") == 1
-//       ) {
-//         gsap.to(".text3", {
-//           ease: "none",
-//           duration: 0.5,
-//           autoAlpha: 0,
-//         });
-//       } else {
-//         gsap.to(
-//           ".text3",
-//           {
-//             autoAlpha: 0,
-//           },
-//           "<0.5"
-//         );
-//       }
-//       break;
-//     }
-
-//     case "icon4": {
-//       if (window.getComputedStyle(text4).getPropertyValue("opacity") == 0) {
-//         gsap.to(".text4", {
-//           ease: "none",
-//           duration: 0.5,
-//           autoAlpha: 1,
-//         });
-//       } else if (
-//         window.getComputedStyle(text4).getPropertyValue("opacity") == 1
-//       ) {
-//         gsap.to(".text4", {
-//           ease: "none",
-//           duration: 0.5,
-//           autoAlpha: 0,
-//         });
-//       } else {
-//         gsap.to(
-//           ".text4",
-//           {
-//             autoAlpha: 0,
-//           },
-//           "<0.5"
-//         );
-//       }
-//       break;
-//     }
-//     case "icon5": {
-//       if (window.getComputedStyle(text5).getPropertyValue("opacity") == 0) {
-//         gsap.to(".text5", {
-//           ease: "none",
-//           duration: 0.5,
-//           autoAlpha: 1,
-//         });
-//       } else if (
-//         window.getComputedStyle(text5).getPropertyValue("opacity") == 1
-//       ) {
-//         gsap.to(".text5", {
-//           ease: "none",
-//           duration: 0.5,
-//           autoAlpha: 0,
-//         });
-//       } else {
-//         gsap.to(
-//           ".text5",
-//           {
-//             autoAlpha: 0,
-//           },
-//           "<0.5"
-//         );
-//       }
-//       break;
-//     }
-//     case "icon6": {
-//       if (window.getComputedStyle(text6).getPropertyValue("opacity") == 0) {
-//         gsap.to(".text6", {
-//           ease: "none",
-//           duration: 0.5,
-//           autoAlpha: 1,
-//         });
-//       } else if (
-//         window.getComputedStyle(text6).getPropertyValue("opacity") == 1
-//       ) {
-//         gsap.to(".text6", {
-//           ease: "none",
-//           duration: 0.5,
-//           autoAlpha: 0,
-//         });
-//       } else {
-//         gsap.to(
-//           ".text6",
-//           {
-//             autoAlpha: 0,
-//           },
-//           "<0.5"
-//         );
-//       }
-//       break;
-//     }
-//     default: {
-//       // any other case
-//     }
-//   }
-// }
-
 //remove unneeded classes from textPos
 let text1 = document.querySelector(".textPos");
 let text2 = document.querySelector(".textPos2");
 let text3 = document.querySelector(".textPos3");
-
-// if (text1 && text2 && text3) {
-//   let text1Children = text1.children;
-//   // console.log(text1Children);
-//   for (let i = 0; i < text1Children.length; i++) {
-//     text1Children[i].classList.remove(
-//       "text2_1",
-//       "text2_2",
-//       "text2_3",
-//       "text2_4",
-//       "text2_5",
-//       "text2_6",
-//       "text3_1"
-//     );
-//   }
-
-//   let text2Children = text2.children;
-//   // console.log(text1Children);
-//   for (let i = 0; i < text2Children.length; i++) {
-//     text2Children[i].classList.remove("text1", "text3_1");
-//   }
-
-//   let text3Children = text3.children;
-//   // console.log(text1Children);
-//   for (let i = 0; i < text3Children.length; i++) {
-//     text3Children[i].classList.remove("text2_1", "text1");
-//   }
-// }
 
 // Define an array of classes to remove
 let classesToRemove1 = [
@@ -350,7 +145,7 @@ let classesToRemove2 = [
   "text3_6",
 ];
 
-// Check if text1 exists
+// Check if text2 exists
 if (text2) {
   // Get the children of text1
   let text2Children = text2.children;
@@ -381,7 +176,7 @@ let classesToRemove3 = [
   "text2_6",
 ];
 
-// Check if text1 exists
+// Check if text3 exists
 if (text3) {
   // Get the children of text1
   let text3Children = text3.children;
@@ -396,19 +191,25 @@ if (text3) {
   }
 }
 
+//add event listener to icons
+icons.addEventListener("click", (e) => {
+  // console.log("Icon clicked! ID:", e.target.id);
+  handleClick1(e.target.id);
+});
 // functions to handle click on images
-function handleClick1(id) {
+let handleClick1 = (id) => {
   //select all text elements
   let texts = document.querySelectorAll(
     ".text1, .text2, .text3, .text4, .text5, .text6"
   );
   //find the index of the text element that matches the id
   let index = parseInt(id.slice(-1)) - 1;
+  // console.log("The index is:", index);
   //toggle the opacity of the text element using gsap
   gsap.to(texts[index], {
     ease: "none",
     duration: 0.5,
-    autoAlpha: function () {
+    autoAlpha: () => {
       if (texts[index].style.opacity == 0) {
         return 1;
       } else {
@@ -416,68 +217,73 @@ function handleClick1(id) {
       }
     },
   });
-}
+};
 
-icons2.addEventListener("click", function () {
-  handleClick2(this.id);
+icons2.addEventListener("click", (e) => {
+  // console.log("Icon clicked! ID:", e.target.id);
+  handleClick2(e.target.id);
 });
 
 // functions to handle click on images
-function handleClick2(id) {
+let handleClick2 = (id) => {
   //select all text elements
   let texts = document.querySelectorAll(
     ".text2_1, .text2_2, .text2_3, .text2_4, .text2_5, .text2_6"
   );
   //find the index of the text element that matches the id
-  //use a regular expression to extract the number from the id
-  // let index = id.match(/\d+/) - 1;
-  for (let i = 0; i < texts.length; i++) {
-    // console.log(texts[i]);
-    //toggle the opacity of the text element using gsap
-    gsap.to(texts[i], {
-      ease: "none",
-      duration: 0.5,
-      autoAlpha: function () {
-        if (texts[i].style.opacity == 0) {
-          return 1;
-        } else {
-          return 0;
-        }
-      },
-    });
-  }
-}
+  let index = parseInt(id.substr(-1)) - 1;
+  // console.log("The index is: " + id);
+  //toggle the opacity of the text element using gsap
+  gsap.to(texts[index], {
+    ease: "none",
+    duration: 0.5,
+    autoAlpha: () => {
+      if (texts[index].style.opacity == 0) {
+        return 1;
+      } else {
+        return 0;
+      }
+    },
+  });
+};
 
-icons3.addEventListener("click", function () {
-  handleClick2(this.id);
+icons3.addEventListener("click", (e) => {
+  // console.log("Icon clicked! ID:", e.target.id);
+  handleClick3(e.target.id);
 });
 
 // functions to handle click on images
-function handleClick3(id) {
+let handleClick3 = (id) => {
   //select all text elements
   let texts = document.querySelectorAll(
     ".text3_1, .text3_2, .text3_3, .text3_4, .text3_5, .text3_6"
   );
   //find the index of the text element that matches the id
-  //use a regular expression to extract the number from the id
-  // let index = id.match(/\d+/) - 1;
-  for (let i = 0; i < texts.length; i++) {
-    console.log(texts[i]);
-    //toggle the opacity of the text element using gsap
-    gsap.to(texts[i], {
-      ease: "none",
-      duration: 0.5,
-      autoAlpha: function () {
-        if (texts[i].style.opacity == 0) {
-          return 1;
-        } else {
-          return 0;
-        }
-      },
-    });
-  }
-}
+  let index = parseInt(id.substr(-1)) - 1;
+  // console.log(id);
+  //toggle the opacity of the text element using gsap
+  gsap.to(texts[index], {
+    ease: "none",
+    duration: 0.5,
+    autoAlpha: () => {
+      if (texts[index].style.opacity == 0) {
+        return 1;
+      } else {
+        return 0;
+      }
+    },
+  });
+};
 
+let opacityzero = () => {
+  tl.set(".text1", { autoAlpha: 0 }, "+3");
+  tl.set(".text2", { autoAlpha: 0 }, "+3");
+  tl.set(".text3", { autoAlpha: 0 }, "+3");
+  tl.set(".text4", { autoAlpha: 0 }, "+3");
+  tl.set(".text5", { autoAlpha: 0 }, "+3");
+  tl.set(".text6", { autoAlpha: 0 }, "+3");
+  console.log("Complete");
+};
 //creating a timeline
 let tl = gsap.timeline({ repeat: -1 });
 
@@ -525,18 +331,12 @@ tl.to(
     duration: 0.5,
     autoAlpha: 1,
     stagger: 0.5,
+    onComplete: opacityzero(),
   },
   3.5
 );
 
 tl.to(".icon", { autoAlpha: 0 }, "<3");
-
-// tl.to(".text1", { autoAlpha: 0 }, "<0");
-// tl.to(".text2", { autoAlpha: 0 }, "<0");
-// tl.to(".text3", { autoAlpha: 0 }, "<0");
-// tl.to(".text4", { autoAlpha: 0 }, "<0");
-// tl.to(".text5", { autoAlpha: 0 }, "<0");
-// tl.to(".text6", { autoAlpha: 0 }, "<0");
 
 //section 2 starts from here
 tl.to(birdAppear2, { duration: 3, ease: "none", autoAlpha: 1 }, 7);
