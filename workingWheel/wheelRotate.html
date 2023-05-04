@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gsap Animation</title>
+    <style>
+      body {
+        overflow: hidden;
+        /* height: 600px; */
+      }
+      .cl-h {
+        display: none;
+      }
+      #svg {
+        transform-origin: center center;
+      }
+      #inner-circle {
+        transform-origin: 50% 50%;
+      }
+      #outer-circle {
+        transform-origin: center center;
+      }
+      #rec,
+      #rec-txt,
+      #ques,
+      #quesTxt,
+      #quTxt,
+      #line,
+      .qu,
+      .quTxt {
+        opacity: 0;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* transform-origin: center center; */
+      }
+      .content {
+        width: 80vh;
+        /* height: 100vh; */
+        transform-origin: center center;
+      }
+      svg {
+        transform-origin: 50% 50%;
+      }
+      .indicator {
+        fill: red;
+      }
+      .cls-9 {
+        color: black;
+      }
+      .segment.active {
+        fill: coral;
+      }
+      /* #segment1 {
+        fill: #f00;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg
+          id="svg"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 734.82 768.79"
+        >
+          <title>customwheel-2</title>
+          <g id="circ-out">
+            <g id="sec15">
+              <path
+                class="segment active"
+                d="M533.76,49.19a367.92,367.92,0,0,1,129.6-31c6.23-.31,12.5-.47,18.64-.48V382.15Z"
+                transform="translate(-315 17.01)"
+                style="fill: #a094ff"
+              />
+            </g>
+            <g id="sec14">
+              <path
+                class="segment"
+                d="M410.12,138.57a363.68,363.68,0,0,1,122.72-89l148.25,333Z"
+                transform="translate(-315 17.01)"
+                style="fill: #ff7200"
+              />
+            </g>
+            <g id="sec13">
+              <path
+                class="segment"
+                d="M333.45,270.56a370.5,370.5,0,0,1,76-131.24l271,244Z"
+                transform="translate(-315 17.01)"
+                style="fill: #aa004c"
+              />
+            </g>
+            <g id="sec12">
+              <path
+                class="segment"
+                d="M317.48,422.36a375.13,375.13,0,0,1-2-38.36,368.63,368.63,0,0,1,12.28-94.55c1.62-6,3.42-12,5.35-17.94l347,112.74Z"
+                transform="translate(-315 17.01)"
+                style="fill: #891616"
+              />
+            </g>
+            <g id="sec11">
+              <path
+                class="segment"
+                d="M364.53,567.5a363.17,363.17,0,0,1-46.94-144.14l362.62-38.12Z"
+                transform="translate(-315 17.01)"
+                style="fill: #c66aff"
+              />
+            </g>
+            <g id="sec10">
+              <path
+                class="segment"
+                d="M466.48,681A371.91,371.91,0,0,1,365,568.37L680.71,386.11Z"
+                transform="translate(-315 17.01)"
+                style="fill: #85ff3f"
+              />
+            </g>
+            <g id="sec9">
+              <path
+                class="segment"
+                d="M605.74,743.21a368.25,368.25,0,0,1-123.17-51.13c-5.2-3.39-10.34-6.93-15.28-10.52L681.52,386.7Z"
+                transform="translate(-315 17.01)"
+                style="fill: #ff3615"
+              />
+            </g>
+            <g id="sec8">
+              <path
+                class="segment"
+                d="M682.27,751.28a369.52,369.52,0,0,1-59.17-4.77l-1.58-.27-.95-.17-3-.53c-3.7-.67-7.35-1.38-10.85-2.13L682.5,386.9l75.77,356.49a370.35,370.35,0,0,1-76,7.89Z"
+                transform="translate(-315 17.01)"
+                style="fill: #000894"
+              />
+            </g>
+            <g id="sec7">
+              <path
+                class="segment"
+                d="M683.48,386.7,897.71,681.56a368.38,368.38,0,0,1-112.89,55.22l-2.93.84-.95.27-1.53.43c-6.44,1.75-13.21,3.39-20.16,4.86Z"
+                transform="translate(-315 17.01)"
+                style="fill: #7feeff"
+              />
+            </g>
+            <g id="sec6">
+              <path
+                class="segment"
+                d="M684.29,386.11,999.93,568.35a368.23,368.23,0,0,1-86.51,101.2c-4.89,4-9.9,7.79-14.9,11.42Z"
+                transform="translate(-315 17.01)"
+                style="fill: #ff5571"
+              />
+            </g>
+            <g id="sec5">
+              <path
+                class="segment"
+                d="M684.79,385.24l362.47,38.1A367.71,367.71,0,0,1,1009.39,551c-2.86,5.61-5.88,11.16-9,16.5Z"
+                transform="translate(-315 17.01)"
+                style="fill: #ecff3f"
+              />
+            </g>
+            <g id="sec4">
+              <path
+                class="segment"
+                d="M684.89,384.25l346.64-112.63a367.92,367.92,0,0,1,17.31,132.1c-.33,6.24-.83,12.5-1.47,18.63Z"
+                transform="translate(-315 17.01)"
+                style="fill: #947500"
+              />
+            </g>
+            <g id="sec3">
+              <path
+                class="segment"
+                d="M955.44,139.42A368,368,0,0,1,1025,253c2.24,5.86,4.35,11.81,6.26,17.68L684.58,383.3Z"
+                transform="translate(-315 17.01)"
+                style="fill: #008ae9"
+              />
+            </g>
+            <g id="sec2">
+              <path
+                class="segment"
+                d="M832.16,49.59a367.87,367.87,0,0,1,109.7,75.47c4.43,4.45,8.78,9,12.91,13.61L683.91,382.55Z"
+                transform="translate(-315 17.01)"
+                style="fill: #f63fff"
+              />
+            </g>
+            <path
+              id="sec1"
+              class="segment"
+              d="M831.9,48.94,682.5,384.5V17.17A369.92,369.92,0,0,1,814.15,41.56c2,.76,4,1.56,6,2.36Q826.05,46.34,831.9,48.94Z"
+              transform="translate(-315 17.01)"
+              style="fill: #15ff9f"
+            />
+          </g>
+          <g id="circ-in">
+            <g id="in-circ">
+              <path
+                d="M682,644.5a259.51,259.51,0,1,1,183.49-76A257.77,257.77,0,0,1,682,644.5Z"
+                transform="translate(-315 17.01)"
+                style="fill: #ab00e9"
+              />
+            </g>
+          </g>
+          <g id="ind">
+            <path
+              id="indicator"
+              d="M682.84,81.73,613.68,12.57c38.11-38.11,99.93-38.11,138.32,0Z"
+              transform="translate(-315 17.01)"
+              style="fill: #5900d4"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <!-- gsap and js files -->
+    <script src="../gsap-3.11.5-premium/gsap.min.js"></script>
+    <script src="../gsap-3.11.5-premium/ScrollTrigger.min.js"></script>
+    <script src="../gsap-3.11.5-premium/DrawSVGPlugin3.min.js"></script>
+    <script src="../gsap-3.11.5-premium/Draggable.min.js"></script>
+    <script src="../gsap-3.11.5-premium/InertiaPlugin.min.js"></script>
+    <script src="../gsap-3.11.5-premium/MorphSVGPlugin3.min.js"></script>
+    <script src="../gsap-3.11.5-premium/ScrollToPlugin.min.js"></script>
+    <script src="../gsap-3.11.5-premium/Observer.min.js"></script>
+    <!-- <script src="./wheelRotate.js"></script> -->
+    <script src="./newwheel.js"></script>
+  </body>
+</html>
